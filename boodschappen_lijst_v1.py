@@ -6,13 +6,13 @@
 # Als de gebruiker geen boodschappen meer wilt toevoegen word het totale lijstje aan de gebruiker getoond.
 
 
-# ===================================[ variable ]==========================================
+# ===================================[-variable-]==========================================
 vraag_hoeveel = 0
 vraag_wat = 0 
 
-# ====================================[ lijst ]============================================
+# ====================================[-lijst-]============================================
 boodschappen_lijst = {}
-# ====================================[ uitvoer ]==========================================
+# ====================================[-uitvoer-]==========================================
 
 
 
@@ -54,7 +54,7 @@ def bestellin_toevoegen():
          print("u kunt alleen maar antwoorden met j / n ")
          bestellin_toevoegen()
                 
-
+#========================================================================================
 
 def bestelling_opnemen():
     vraag_boodschappen=input("wilt u een boodchappen lijsje samen stellen  j / n : ")

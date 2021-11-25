@@ -6,65 +6,59 @@
 # Als de gebruiker geen boodschappen meer wilt toevoegen word het totale lijstje aan de gebruiker getoond.
 
 
-# ===================================[ variable ]==========================================
-vraag_hoeveel = 0
-vraag_wat = 0 
+vraag_hoeveel = 0 
+vraag_wat = 0
 
-# ====================================[ lijst ]============================================
-boodschappen_lijst = {}
-# ====================================[ uitvoer ]==========================================
+boodchappen_lijsje = {}
+#=====================================[-def bestelling-]===============================================
+
+def bestelling_j_n():                                                                # begin van het programma 
+    vraag_bestelling = input("wilt u een boodschappen lijsje samen stellen j / n ")  
+    if vraag_bestelling=="j":
+        check_dubbelen()
+      
 
 
 
-def bestellin_toevoegen(): 
-    vraag_wat = input(" wat wilt u toevoegen : ? ")
-    for x, y in boodschappen_lijst.items():
+
+
+#=====================================[-def vervolg bestelling-]=======================================
+
+def check_dubbelen():
+    vraag_wat = input("wat wilt u toeveogen aan uw lijsje : ? ")
+
+    for x,y in boodchappen_lijsje.items():
         if vraag_wat == x:
-            vraag_hoeveel = int(input("hoeeveel " + (vraag_wat ) + " wilt u erbij hebben : ? " + "u heeft al " + str(y)+ " "))
+            vraag_hoeveel = str(input("hoeveel " + (vraag_wat) + "wilt u meer bestellen : ? " + "u heeft al " + (y)))
             y = y + vraag_hoeveel
-            boodschappen_lijst[x] =  y
-            nog_meer_bestellen = input("wilt u nog meer bestellen j / n  ")
-            
-            if nog_meer_bestellen == "j":
-                    bestellin_toevoegen()
-            elif nog_meer_bestellen == "n":
-                for x, y in boodschappen_lijst.items():
-                        print(x,y)
-                        exit()
+            boodchappen_lijsje[x] = y 
+            meer_bestellen = input("wilt u nog meer bestellen j / n ")
 
-            else:
-                print("u kunt alleen maar antwoorden met j / n ")
-                bestellin_toevoegen()
-            
-
-    
-            
-    vraag_hoeveel = int(input("hoeeveel " + (vraag_wat ) + " wilt u hebben : ? "))
-    boodschappen_lijst[vraag_wat] = vraag_hoeveel
-                                
-    nog_meer_bestellen = input("wilt u nog meer bestellen j / n  ")
-    if nog_meer_bestellen == "j":
-             bestellin_toevoegen()
-    elif nog_meer_bestellen == "n":
-           for x, y in boodschappen_lijst.items():
+            if meer_bestellen == "j":
+                check_dubbelen()
+            elif meer_bestellen=="n":
                 print(x,y)
                 exit()
+            else:
+                print("u kunt alleen kiezen tussen j / n  ") 
+
+
+
+
+
+            
+        
+    vraag_hoeveel = int(input("hoeveel " + (vraag_wat) + "wilt u bestellen ")) 
+    boodchappen_lijsje[vraag_wat]=[vraag_hoeveel]
+    meer_bestellen = input ("wilt u nog meer bestellen : ? ")
+    if meer_bestellen == "j":
+        check_dubbelen()
+    elif meer_bestellen=="n":
+        print(x,y)
+        exit     
     else:
-         print("u kunt alleen maar antwoorden met j / n ")
-         bestellin_toevoegen()
-                
+        print("u kunt aleen kiezen tussen j / n ")
+     
 
 
-def bestelling_opnemen():
-    vraag_boodschappen=input("wilt u een boodchappen lijsje samen stellen  j / n : ")
-    if vraag_boodschappen == "j":
-        bestellin_toevoegen()
-    elif vraag_boodschappen == "n":
-         print("oke tot ziens ")
-    else:
-        print("u kunt allen maar antwoorden met j / n ") 
-        bestelling_opnemen()
-
-
-
-bestelling_opnemen()
+bestelling_j_n()
